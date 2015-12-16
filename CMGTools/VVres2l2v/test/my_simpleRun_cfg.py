@@ -1,6 +1,6 @@
 import os
 import PhysicsTools.HeppyCore.framework.config as cfg
-from CMGTools.VVres2l2v.utils.miniAodFiles import miniAodFiles
+#from CMGTools.VVres2l2v.utils.miniAodFiles import miniAodFiles
 
 # input component 
 # several input components can be declared,
@@ -39,13 +39,13 @@ tree = cfg.Analyzer(
     SimpleTreeAnalyzer
     )
 
-
 # definition of a sequence of analyzers,
 # the analyzers will process each event in this order
 sequence = cfg.Sequence( [
     jets,
     tree
     ] )
+
 
 # finalization of the configuration object. 
 from PhysicsTools.HeppyCore.framework.eventsfwlite import Events
