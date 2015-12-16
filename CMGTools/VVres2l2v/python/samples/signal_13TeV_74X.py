@@ -1,8 +1,8 @@
 from CMGTools.RootTools.samples.ComponentCreator import ComponentCreator
 kreator = ComponentCreator()
 signalSamples=[] 
-BulkGravToZZ_narrow_1000=kreator.makeMCComponent("BulkGravToZZ_narrow_1000", "/BulkGravToZZ_narrow_M-1000_13TeV-madgraph/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM", "CMS", ".*root",1.0)
-signalSamples.append(BulkGravToZZ_narrow_1000)
+# BulkGravToZZ_narrow_1000=kreator.makeMCComponent("BulkGravToZZ_narrow_1000", "/BulkGravToZZ_narrow_M-1000_13TeV-madgraph/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM", "CMS", ".*root",1.0)
+# signalSamples.append(BulkGravToZZ_narrow_1000)
 # BulkGravToZZ_narrow_1200=kreator.makeMCComponent("BulkGravToZZ_narrow_1200", "/BulkGravToZZ_narrow_M-1200_13TeV-madgraph/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM", "CMS", ".*root",1.0)
 # signalSamples.append(BulkGravToZZ_narrow_1200)
 # BulkGravToZZ_narrow_1400=kreator.makeMCComponent("BulkGravToZZ_narrow_1400", "/BulkGravToZZ_narrow_M-1400_13TeV-madgraph/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM", "CMS", ".*root",1.0)
@@ -23,3 +23,5 @@ signalSamples.append(BulkGravToZZ_narrow_1000)
 # signalSamples.append(BulkGravToZZ_narrow_4500)
 # BulkGravToZZ_narrow_800=kreator.makeMCComponent("BulkGravToZZ_narrow_800", "/BulkGravToZZ_narrow_M-800_13TeV-madgraph/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM", "CMS", ".*root",1.0)
 # signalSamples.append(BulkGravToZZ_narrow_800)
+BulkGravToZZToZlepZhad_narrow_800=kreator.makeMCComponent("BulkGravToZZToZlepZhad_narrow_800", "/BulkGravToZZToZlepZhad_narrow_M-800_13TeV-madgraph/RunIISpring15MiniAODv2-74X_mcRun2_asymptotic_v2-v1/MINIAODSIM", "CMS", ".*root",1.0)
+signalSamples.append(BulkGravToZZToZlepZhad_narrow_800)
