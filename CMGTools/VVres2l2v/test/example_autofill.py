@@ -32,6 +32,9 @@ treeProducer= cfg.Analyzer(
         "selectedTaus"    : NTupleCollection("TauGood", tauType, 3, help="Taus after the preselection"),
         "cleanJets"       : NTupleCollection("Jet",     jetType, 8, help="Cental jets after full selection and cleaning, sorted by b-tag"),
         #dump of gen objects
+#        "genleps"          : NTupleCollection("GenLep",    genParticleWithLinksType, 10, help="Generated leptons (e/mu) from W/Z decays"),                                      \
+#        "inclusiveLeptons" : NTupleCollection("l",        leptonTypeExtra, 10, help="Inclusive Leptons"),
+
         "gentopquarks"    : NTupleCollection("GenTop",     genParticleType, 2, help="Generated top quarks from hard scattering"),
         "genbquarks"      : NTupleCollection("GenBQuark",  genParticleType, 2, help="Generated bottom quarks from top quark decays"),
         "genwzquarks"     : NTupleCollection("GenQuark",   genParticleType, 6, help="Generated quarks from W/Z decays"),
@@ -66,15 +69,22 @@ FlagsAna = TriggerBitAnalyzer.defaultEventFlagsConfig
 
 # Configure trigger bit analyzer
 from PhysicsTools.Heppy.analyzers.core.TriggerBitAnalyzer import TriggerBitAnalyzer
+#load triggers
+from CMGTools.RootTools.samples.triggers_13TeV_Spring15 import *
+
 TrigAna= cfg.Analyzer(
     verbose=False,
     class_object=TriggerBitAnalyzer,
     #grouping several paths into a single flag
     # v* can be used to ignore the version of a path
     triggerBits={
-    'ELE':["HLT_Ele23_Ele12_CaloId_TrackId_Iso_v*","HLT_Ele32_eta2p1_WP85_Gsf_v*","HLT_Ele32_eta2p1_WP85_Gsf_v*"],
-    'MU': ["HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_v*","HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_v*","HLT_IsoTkMu24_eta2p1_IterTrk02_v*","HLT_IsoTkMu24_IterTrk02_v*"],
+        "ELE":triggers_1e_noniso,
+        "MU": triggers_1mu_noniso,
+#    'ELE':["HLT_Ele23_Ele12_CaloId_TrackId_Iso_v*","HLT_Ele32_eta2p1_WP85_Gsf_v*","HLT_Ele32_eta2p1_WP85_Gsf_v*"],
+#    'MU': ["HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_v*","HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_v*","HLT_IsoTkMu24_eta2p1_IterTrk02_v*","HLT_IsoTkMu24_IterTrk02_v*"],
+
     },
+    
 #   processName='HLT',
 #   outprefix='HLT'
     #setting 'unrollbits' to true will not only store the OR for each set of trigger bits but also the individual bits
