@@ -4,8 +4,8 @@ import PhysicsTools.HeppyCore.framework.config as cfg
 
 # The content of the output tree is defined here
 # the definitions of the NtupleObjects are located under PhysicsTools/Heppy/python/analyzers/objects/autophobj.py
- 
-from PhysicsTools.Heppy.analyzers.core.AutoFillTreeProducer  import * 
+from CMGTools.VVres2l2v.analyzers.core.AutoFillTreeProducer  import *  # modified to use new *leptonType* by Mengqing
+
 treeProducer= cfg.Analyzer(
 	class_object=AutoFillTreeProducer, 
 	verbose=False, 

@@ -1,3 +1,9 @@
+#!/bin/env python
+
+# origin from /PhysicsTools/Heppy/python/analyzers/objects/LeptonAnalyzer.py
+# modified by Mengqing
+# @ Dec 21 2015
+
 from PhysicsTools.Heppy.analyzers.core.Analyzer import Analyzer
 from PhysicsTools.Heppy.analyzers.core.AutoHandle import AutoHandle
 from PhysicsTools.Heppy.physicsobjects.Electron import Electron
@@ -600,7 +606,7 @@ setattr(LeptonAnalyzer,"defaultConfig",cfg.Analyzer(
     loose_electron_dxy    = 0.05,
     loose_electron_dz     = 0.2,
     loose_electron_relIso = 0.4,
-    # loose_electron_isoCut = lambda electron : electron.miniRelIso < 0.1
+  #  loose_electron_isoCut =  lambda electron : electron.miniRelIso < 0.1
     loose_electron_lostHits = 1.0,
     # muon isolation correction method (can be "rhoArea" or "deltaBeta")
     mu_isoCorr = "rhoArea" ,
