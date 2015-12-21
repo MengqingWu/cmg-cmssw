@@ -28,7 +28,7 @@ class Muon( Lepton ):
         if name == "Tracker_HighPt":
             if vertex is None:
                 vertex = getattr(self, 'associatedVertex', None)
-            return self.physObj.isTrackerMuon() and self.physObj.numberOfMatchedStations() > 1 \
+            return self.physObj.isTrackerMuon() and self.physObj.numberOfMatchedStations() > 1 and \
                 self.innerTrack().hitPattern().numberOfValidPixelHits() > 0 and \
                 self.innerTrack().hitPattern().trackerLayersWithMeasurement() > 5 and \
                 self.physObj.muonBestTrack()->ptError()/self.physObj.muonBestTrack()->pt() < 0.3 and \
