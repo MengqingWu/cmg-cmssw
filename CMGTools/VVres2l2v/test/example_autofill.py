@@ -22,15 +22,17 @@ treeProducer= cfg.Analyzer(
         # uncommented by mengqing:
         #The following would just store the electrons and muons from miniaod without any selection or cleaning
         # only the basic particle information is saved
-        "slimmedMuons"    : ( AutoHandle( ("slimmedMuons",), "std::vector<pat::Muon>" ),
-                              NTupleCollection("mu", particleType, 4, help="patMuons, directly from MINIAOD") ),
-        "slimmedElectron" : ( AutoHandle( ("slimmedElectrons",), "std::vector<pat::Electron>" ),
-                              NTupleCollection("ele", particleType, 4, help="patElectron, directly from MINIAOD") ),
+        # "slimmedMuons"    : ( AutoHandle( ("slimmedMuons",), "std::vector<pat::Muon>" ),
+        #                       NTupleCollection("mu", particleType, 4, help="patMuons, directly from MINIAOD") ),
+        # "slimmedElectron" : ( AutoHandle( ("slimmedElectrons",), "std::vector<pat::Electron>" ),
+        #                       NTupleCollection("ele", particleType, 4, help="patElectron, directly from MINIAOD") ),
         
         #standard dumping of objects
-        "selectedLeptons" : NTupleCollection("leptons", leptonType, 8, help="Leptons after the preselection"),
-        "selectedTaus"    : NTupleCollection("TauGood", tauType, 3, help="Taus after the preselection"),
-        "cleanJets"       : NTupleCollection("Jet",     jetType, 8, help="Cental jets after full selection and cleaning, sorted by b-tag"),
+        "selectedLeptons"  : NTupleCollection("leptons", leptonType, 8, help="Leptons after the preselection"),
+        "selectedMuons"    : NTupleCollection("MuGood",  leptonType, 4, help="Muons after the preselection"),
+        "selectedElectrons": NTupleCollection("EleGood", leptonType, 4, help="Electrons after the preselection"),
+        "selectedTaus"     : NTupleCollection("TauGood", tauType, 3, help="Taus after the preselection"),
+        "cleanJets"        : NTupleCollection("Jet",     jetType, 8, help="Cental jets after full selection and cleaning, sorted by b-tag"),
         #dump of gen objects
 #        "genleps"          : NTupleCollection("GenLep",    genParticleWithLinksType, 10, help="Generated leptons (e/mu) from W/Z decays"),                                      \
 #        "inclusiveLeptons" : NTupleCollection("l",        leptonTypeExtra, 10, help="Inclusive Leptons"),
@@ -96,6 +98,8 @@ TrigAna= cfg.Analyzer(
 
 #replace some parameters
 LepAna.loose_muon_pt = 10
+LepAna.doMiniIsolation = True # add by Mengqing
+LepAna.mu_tightId = "POG_ID_HighPt" # add by Mengqing
 GenAna.allGenTaus = True # added by Mengqing: to create 'gentaus' list with all taus
 
 sequence = [LHEAna,FlagsAna, GenAna, PUAna,TrigAna,VertexAna,LepAna,TauAna,PhoAna,JetAna,METAna,treeProducer]
