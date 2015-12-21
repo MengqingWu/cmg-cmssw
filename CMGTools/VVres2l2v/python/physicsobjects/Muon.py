@@ -31,9 +31,9 @@ class Muon( Lepton ):
             return self.physObj.isTrackerMuon() and self.physObj.numberOfMatchedStations() > 1 and \
                 self.innerTrack().hitPattern().numberOfValidPixelHits() > 0 and \
                 self.innerTrack().hitPattern().trackerLayersWithMeasurement() > 5 and \
-                self.physObj.muonBestTrack()->ptError()/self.physObj.muonBestTrack()->pt() < 0.3 and \
-                fabs(self.physObj.muonBestTrack()->dz(vertex.position())) < 0.5 and \
-                fabs(self.physObj.muonBestTrack()->dxy(vertex.position())) < 0.2
+                self.physObj.muonBestTrack().ptError()/self.physObj.muonBestTrack().pt() < 0.3 and \
+                fabs(self.physObj.muonBestTrack().dz(vertex.position())) < 0.5 and \
+                fabs(self.physObj.muonBestTrack().dxy(vertex.position())) < 0.2
         
         if name.startswith("POG_"):
             if name == "POG_ID_Loose": return self.physObj.isLooseMuon()
