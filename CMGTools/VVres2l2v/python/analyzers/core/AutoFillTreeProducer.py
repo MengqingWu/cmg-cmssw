@@ -2,7 +2,7 @@ from PhysicsTools.Heppy.analyzers.core.TreeAnalyzerNumpy import TreeAnalyzerNump
 from PhysicsTools.Heppy.analyzers.core.AutoHandle import AutoHandle
 #from ROOT import TriggerBitChecker
 from PhysicsTools.Heppy.analyzers.core.autovars import *
-from CMGTools.VVres2l2v.analyzers.objects.autophobj  import * # modified to use new *leptonType* by Mengqing
+from PhysicsTools.Heppy.analyzers.objects.autophobj  import * 
 
 
 class AutoFillTreeProducer( TreeAnalyzerNumpy ):

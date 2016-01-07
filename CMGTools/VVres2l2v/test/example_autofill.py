@@ -4,7 +4,7 @@ import PhysicsTools.HeppyCore.framework.config as cfg
 
 # The content of the output tree is defined here
 # the definitions of the NtupleObjects are located under PhysicsTools/Heppy/python/analyzers/objects/autophobj.py
-from CMGTools.VVres2l2v.analyzers.core.AutoFillTreeProducer  import *  # modified to use new *leptonType* by Mengqing
+from PhysicsTools.Heppy.analyzers.core.AutoFillTreeProducer  import * 
 
 treeProducer= cfg.Analyzer(
 	class_object=AutoFillTreeProducer, 
@@ -29,8 +29,8 @@ treeProducer= cfg.Analyzer(
         
         #standard dumping of objects
         "selectedLeptons"  : NTupleCollection("leptons", leptonType, 8, help="Leptons after the preselection"),
-        "selectedMuons"    : NTupleCollection("MuGood",  leptonType, 4, help="Muons after the preselection"),
-        "selectedElectrons": NTupleCollection("EleGood", leptonType, 4, help="Electrons after the preselection"),
+        "selectedMuons"    : NTupleCollection("MuGood",  leptonTypeExtra, 4, help="Muons after the preselection"),
+        "selectedElectrons": NTupleCollection("EleGood", leptonTypeExtra, 4, help="Electrons after the preselection"),
         "selectedTaus"     : NTupleCollection("TauGood", tauType, 3, help="Taus after the preselection"),
         "cleanJets"        : NTupleCollection("Jet",     jetType, 8, help="Cental jets after full selection and cleaning, sorted by b-tag"),
         #dump of gen objects
@@ -152,7 +152,7 @@ print config #added by Mengqing
 # and the following runs the process directly if running as with python filename.py  
 if __name__ == '__main__':
     from PhysicsTools.HeppyCore.framework.looper import Looper 
-#    looper = Looper( 'Loop', config, nPrint = 5,nEvents=300) 
-    looper = Looper( 'Loop', config, nPrint = 10) 
+    looper = Looper( 'Loop', config, nPrint = 5, nEvents=300) 
+#    looper = Looper( 'Loop', config, nPrint = 10) 
     looper.loop()
     looper.write()
