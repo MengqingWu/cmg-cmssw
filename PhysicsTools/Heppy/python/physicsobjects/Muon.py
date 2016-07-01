@@ -12,6 +12,9 @@ class Muon( Lepton ):
             raise RuntimeError, "I don't have a track called "+what
         self._trackForDxyDz = what
 
+    def TuneP_p4(self):
+        return self.TuneP_LV
+
     def looseId( self ):
         '''Loose ID as recommended by mu POG.'''
         return self.physObj.isLooseMuon()
@@ -134,3 +137,16 @@ class Muon( Lepton ):
     def ptErr(self):
         if "_ptErr" in self.__dict__: return self.__dict__['_ptErr']
         return self.bestTrack().ptError()
+
+    def TuneP_pt(self):
+        return self.physObj.tunePMuonBestTrack().pt()
+
+    def TuneP_eta(self):
+        return self.physObj.tunePMuonBestTrack().eta()
+
+    def TuneP_phi(self):
+        return self.physObj.tunePMuonBestTrack().phi()
+
+    def TuneP_m(self):
+        return .105
+
